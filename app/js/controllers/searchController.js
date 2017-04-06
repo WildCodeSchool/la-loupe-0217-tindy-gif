@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('SearchController', function($scope, $state, GifService, $stateParams, VoteService, $location, CurrentUser, UserService) {
+    .controller('SearchController', function($scope, $state, GifService, $stateParams, VoteService, $location, CurrentUser, UserService,CopyService) {
         var n = 0;
         var userId = CurrentUser.user()._id;
         console.log(userId);
@@ -30,10 +30,10 @@ angular.module('app')
             GifService.getSearch($stateParams.query).then(function(res) {
                 var i = Math.floor(Math.random(0, res.data.data.length) * 100);
                 $scope.getSearch = res.data.data[i];
-                $scope.gifUrl = res.data.data[i].url;
-                console.log($scope.gifUrl);
+                $scope.gifUrl = res.data.data[i].images.downsized_small.mp4;
+                console.log(res.data);
                 $scope.gifId = res.data.data[i].id;
-                VoteService.getGif($scope.gifId, $scope.gifUrl).then(function(res) {});
+                VoteService.getGif($scope.gifId,$scope.getSearch.images.downsized.url, $scope.gifUrl).then(function(res) {});
                 verif();
             });
         }
@@ -66,7 +66,7 @@ angular.module('app')
 
 
         $scope.copy = function() {
-            CopyService.createCopy($scope.gifId, userId, $scope.smallUrl).then(function(res) {
+            CopyService.createCopy($scope.gifId, userId,$scope.getSearch.images.downsized.url, $scope.smallUrl).then(function(res) {
                 console.log(res);
             });
             var toCopy = document.getElementById('to-copy'),

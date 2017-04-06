@@ -29,7 +29,7 @@ angular.module('app')
                 $scope.lucky = res.data.data.image_url;
                 $scope.gifId = res.data.data.id;
                 $scope.smallUrl = res.data.data.fixed_width_small_url;
-                VoteService.getGif($scope.gifId, $scope.smallUrl).then(function(res) {
+                VoteService.getGif($scope.gifId,$scope.lucky, $scope.smallUrl).then(function(res) {
                     verif();
                 });
             });
@@ -72,7 +72,7 @@ angular.module('app')
 
 
         $scope.copy = function() {
-            CopyService.createCopy($scope.gifId, userId, $scope.smallUrl).then(function(res) {
+            CopyService.createCopy($scope.gifId, userId,$scope.lucky, $scope.smallUrl).then(function(res) {
                 console.log(res);
             });
             var toCopy = document.getElementById('to-copy'),

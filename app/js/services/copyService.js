@@ -2,8 +2,8 @@ angular.module('app')
     .service('CopyService', function($http) {
         return {
 
-            createCopy: function(gif,userId,urlLink){
-              return $http.post('/copy',{gifId: gif, user: userId, url: urlLink});
+            createCopy: function(gif,userId,urlLink,urlSmall){
+              return $http.post('/copy',{gifId: gif, user: userId, url: urlLink, urlSmall: urlSmall});
             },
             getAll: function() {
                 return $http.get('/copy');
