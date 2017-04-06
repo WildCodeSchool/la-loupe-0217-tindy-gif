@@ -2,11 +2,9 @@
     <div class="row">
 
         <div class="col-xs-offset-8 col-xs-1">
-          <form>
             <img ng-click='loupe()' id="GifSearch" src="https://media.giphy.com/media/reIVCrGs6pp28/giphy.gif" alt="">
             <modal-dialog show='modalShown' width='800px' height='60%'>
-                <input ng-model="search.saisie"></input><button type="submit" ng-click="launchSearch()">Go!</button>
-              </form>
+                <input ng-model="search.saisie"></input><button type="button" ng-click="launchSearch()">Go!</button>
 
             </modal-dialog>
         </div>
@@ -15,7 +13,7 @@
         <div class="col-xs-3">
             <div class="row">
                 <div class="col-xs-offset-0 col-xs-1 col-lg-offset-4 col-lg-1 ">
-                    <a ng-show="!isVote()" ng-click="addDislike()"><img id="btDislike" src="img/gdlike.png" /></a>
+                    <a ng-show="!isVote()" ng-click="addDislike()"><img id="btDislike" src="http://media4.giphy.com/media/snEoxV8grx3by/giphy-downsized.gif" /></a>
                 </div>
             </div>
         </div>
@@ -25,7 +23,7 @@
         <div class="col-xs-3">
             <div class="row">
                 <div class="col-xs-offset-0 col-xs-1 col-lg-offset-1 col-lg-1">
-                    <a ng-show="!isVote()" ng-click="addLike()"><img id="btLike" src="img/glike.png" /></a>
+                    <a ng-show="!isVote()" ng-click="addLike()"><img id="btLike" src="https://media3.giphy.com/media/14cilFdQzr8hG0/100.gif" /></a>
                 </div>
             </div>
         </div>
@@ -36,10 +34,12 @@
             <p>like/dislike</p>
         </div>
     </div>
-    <div class="row" id="copyMarge">
+    <div class="row">
         <div class="col-xs-offset-3 col-xs-6" align="center">
-              <input type="text" ng-model="lucky" style="display:none">
-              <button clipboard supported="supported" text="lucky" on-copied="success()" on-error="fail(err)">Copy link</button>
+            <!-- <input type="text" id='to-copy' value="{{lucky}}">
+            <button id="btnCopy" class="btn" ng-click='copy()'>Copy</button> -->
+                <!-- <input type="text" ng-model="gif.url" style="display:none">
+                <button clipboard supported="supported" text="gif.url" on-copied="success()" on-error="fail(err)">Copy link</button> -->
         </div>
     </div>
     <div class="row">

@@ -12,6 +12,10 @@ angular.module('app')
         $scope.modalShown = false;
 
 
+        $scope.swipe = function($event) {
+            console.log($event);
+        };
+
         function verif() {
             VoteService.getUser($scope.gifId, userId).then(function(res) {
                 $scope.isVote = function() {

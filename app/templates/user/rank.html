@@ -5,13 +5,16 @@
     <div class="row">
         <div class="col-xs-6 colHistory" ng-repeat="gif in gifs | orderBy:'gif.date'">
             <div class="box">
-              <img src="{{gif.url}}" id="urlGif" >
+              <img src="{{ gif.url }}" id="urlGif" >
             </div>
             <ul id="box-history">
-                <li>{{ gif.index +1 }}</li>
-                <li>{{ gif.gif }}</li>
-                <li>{{ gif.like }}/{{ gif.dislike }}</li>
 
+                <!-- <li>{{ gif.class }}</li> -->
+                <li>{{ gif.like }}/{{ gif.dislike }}</li>
+                <li>
+                    <input type="text" ng-model="gif.url" style="display:none">
+                    <button clipboard supported="supported" text="gif.url" on-copied="success()" on-error="fail(err)">Copy link</button>
+                </li>
             </ul>
         </div>
     </div>

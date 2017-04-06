@@ -28,10 +28,14 @@ angular.module('app')
 
         function themeGif() {
             GifService.getSearch($stateParams.query).then(function(res) {
+              console.log(res.data);
                 var i = Math.floor(Math.random(0, res.data.data.length) * 100);
                 $scope.getSearch = res.data.data[i];
-                $scope.gifUrl = res.data.data[i].images.downsized_small.mp4;
-                console.log(res.data);
+
+
+                $scope.gifUrl = res.data.data[i].images.downsized_medium.url;
+                console.log($scope.gifUrl);
+
                 $scope.gifId = res.data.data[i].id;
                 VoteService.getGif($scope.gifId,$scope.getSearch.images.downsized.url, $scope.gifUrl).then(function(res) {});
                 verif();
@@ -64,7 +68,7 @@ angular.module('app')
             }
         };
 
-
+        
         $scope.copy = function() {
             CopyService.createCopy($scope.gifId, userId,$scope.getSearch.images.downsized.url, $scope.smallUrl).then(function(res) {
                 console.log(res);

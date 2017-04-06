@@ -2,30 +2,27 @@
 font import
 ================================================================================*/
 
-@font-face {
-    font-family: 'lemon';
-    src: url('/fonts/Lemon-Regular.ttf');
-}
+        @font-face {
+            font-family: 'lemon';
+            src: url('/fonts/Lemon-Regular.ttf');
+        }
 
-@font-face {
-    font-family: 'titan one';
-    src: url('/fonts/TitanOne-Regular.ttf');
-}
+        @font-face {
+            font-family: 'titan one';
+            src: url('/fonts/TitanOne-Regular.ttf');
+        }
 
-@font-face {
-    font-family: 'bowlbyone';
-    src: url('/fonts/BowlbyOne-Regular.ttf');
-}
-
-
+        @font-face {
+            font-family: 'bowlbyone';
+            src: url('/fonts/BowlbyOne-Regular.ttf');
+        }
 /*================================================================================
 font import
 ================================================================================*/
-
-
 /*================================================================================
 Navbar CSS
 ================================================================================*/
+
 
 #navBackground {
     background-color: black;
@@ -45,22 +42,21 @@ Navbar CSS
     margin-right: 10%;
 }
 
-.navbar-inverse .navbar-nav>li>a {
-    color: #10EE2E;
-    font-size: 18px;
-}
 
-.navbar-inverse .navbar-nav>li>a {
-    color: #10EE2E;
-    font-size: 18px;
+.navbar-inverse .navbar-nav > li > a{
+  color: #10EE2E;
+  font-size: 18px;
 }
 
 
+.navbar-inverse .navbar-nav>li>a {
+    color: #10EE2E;
+    font-size: 18px;
+
+}
 /*================================================================================
 Navbar CSS
 ================================================================================*/
-
-
 /*================================================================================
 Register PAGE
 ================================================================================*/
@@ -116,7 +112,7 @@ body {
   padding-bottom: 100px;
 }
 
-h3 {
+h3{
     text-align: center;
     color: #00EEEE;
 }
@@ -146,6 +142,7 @@ h3 {
     border-radius: 20px;
     background-color: grey;
     color: #F123B3;
+
 }
 #copyMarge{
   margin-bottom: 5vw;
@@ -157,52 +154,26 @@ body CSS
 ================================================================================*/
 
 #btLike {
-    /*margin-left: 10%;*/
-    margin-top: 9vw;
-    height: 130px;
-    width: 245px;
-    border-radius: 25px;
+  /*margin-left: 10%;*/
+  margin-top: 9vw;
+  height: 130px;
+  width: 245px;
+  border-radius: 25px;
 }
 
 #btDislike {
-    /*margin-left: -7vw;*/
-    margin-top: 8vw;
-    border-radius: 25px;
+  /*margin-left: -7vw;*/
+      margin-top: 8vw;
+
+      border-radius: 25px;
 }
 
 #partGif {
     margin-top: 8vw;
 }
+h2{
+  color: #F123B3;
 
-h2 {
-    color: #F123B3;
-}
-
-#GifSearch {
-    width: 40px;
-    height: 40px;
-    border-radius: 40px;
-    margin-left: 20vw;
-    position: fixed;
-}
-
-#GifMain {
-    width: 45vw;
-    max-height: 600px;
-}
-
-#to-copy {
-    font-size: 12px;
-    width: 250px;
-    border-radius: 5px;
-    border: black;
-    background-color: grey;
-}
-
-#btnCopy {
-    border-radius: 20px;
-    background-color: grey;
-    color: #F123B3;
 }
 
 
@@ -257,27 +228,32 @@ body CSS
 }
 
 .colHistory {
-    height: 8vw;
+    height: 10em;
     border-radius: 200px 0px 200px 0px;
     -moz-border-radius: 200px 0px 200px 0px;
     -webkit-border-radius: 200px 0px 200px 0px;
     border: 1px solid #10EE2E;
-    margin-top: 3vw;
+    margin-top: 5em;
 }
 
 #urlGif {
-    height: 7vw;
-
-    margin-left: 5vw;
+  height: 0em;
+  max-width: 13em;
+  min-width: 13em;
+  max-height: 8em;
+  min-height: 8em;
+  padding-top: 2em;
+  margin-left: 5em;
 }
 
 #box-history {
-    float: right;
-    margin: 2vw;
-    margin-top: -5vw;
-    font-size: 0.9vw;
-    color: #F123B3;
-    list-style-type: none;
+  float: right;
+  margin: 5em;
+  margin-top: -4em;
+  font-size: 1.3em;
+  color: #F123B3;
+  list-style-type: none;
+  text-align: right;
 }
 
 
@@ -296,15 +272,11 @@ body CSS
     margin-top: 10px;
 }
 
-
 /*================================================================================
 
 @media screen mobile
 ================================================================================*/
-
-
-/*@media  screen and (min-width: 320px) and (max-width: 991px){
-
+        /*@media  screen and (min-width: 320px) and (max-width: 991px){
 
   #navbarTitle {
     font-size: 20px;
@@ -324,16 +296,13 @@ body CSS
     width: 100vw;
     /*height: 40vh;*/
 
-
 /*================================================================================
 @media screen mobile
 ================================================================================*/
 
 
 /*@media screen and (min-width: 992px) and (max-width: 1500px) {*/
-
-
-/*  #btDislike{
+    /*  #btDislike{
 =======
         @media screen and (min-width: 992px) and (max-width: 1500px) {
             /*  #btDislike{
@@ -347,47 +316,45 @@ body CSS
 
 /*================================================================================*/
 
-.ng-modal-overlay {
-    /* A dark translucent div that covers the whole screen */
-    position: absolute;
-    z-index: 9999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
-    opacity: 0.8;
+  .ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:absolute;
+  z-index:9999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:#000000;
+  opacity: 0.8;
 }
-
 .ng-modal-dialog {
-    /* A centered div above the overlay with a box shadow. */
-    z-index: 10000;
-    position: absolute;
-    width: 50%;
-    /* Default */
-    /* Center the dialog */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    background-color: #000;
-    box-shadow: 4px 4px 80px #000;
-}
+  /* A centered div above the overlay with a box shadow. */
+  z-index:10000;
+  position: absolute;
+  width: 50%; /* Default */
 
+  /* Center the dialog */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+
+  background-color: #000;
+  box-shadow: 4px 4px 80px #000;
+}
 .ng-modal-dialog-content {
-    padding: 10px;
-    text-align: left;
+  padding:10px;
+  text-align: left;
 }
-
 .ng-modal-close {
-    position: absolute;
-    top: 3px;
-    right: 5px;
-    padding: 5px;
-    cursor: pointer;
-    font-size: 120%;
-    display: inline-block;
-    font-weight: bold;
-    font-family: 'arial', 'sans-serif';
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
+  font-weight: bold;
+  font-family: 'arial', 'sans-serif';
 }
