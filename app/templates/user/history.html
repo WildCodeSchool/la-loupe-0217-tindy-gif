@@ -1,4 +1,4 @@
-<div class="container">
+<div id="contHistory"  class="container">
 
     <form class="form-horizontal" action='' method="POST">
 
@@ -39,7 +39,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-6 colHistory" ng-repeat="gif in gifs | orderBy:gif.date">
+        <div id="boxGifHistory"class="col-xs-12 col-md-6 colHistory" ng-repeat="gif in gifs | orderBy:gif.date">
             <div class="box">
                 <img id="urlGif" src="{{ gif.url }}">
             </div>

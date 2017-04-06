@@ -17,7 +17,7 @@
       <div ui-view='navbar'></div>
       <div id="main" ui-view='content'></div>
       <footer class="footer">
-        <div class="container">
+        <div id="contFooter" class="container">
           <span>GifMeImFamous* WebSite to be created by Wolfy, DjoDjonx and Jordan. </span>
 
         </div>

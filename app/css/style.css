@@ -308,7 +308,7 @@ body CSS
 ================================================================================*/
 
 
-/*@media  screen and (min-width: 320px) and (max-width: 991px){
+@media  screen and (min-width: 320px) and (max-width: 991px){
 
 
   #navbarTitle {
@@ -326,8 +326,113 @@ body CSS
 
   }
   #GifMain{
-    width: 100vw;
-    /*height: 40vh;*/
+    width: 100%;
+    margin-top: 5%;
+    max-height: 290px;
+    min-height: 290px;
+  }
+  #searchBar{
+    margin-left: 10em;
+  }
+  #GifSearch {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    margin-left: 1em;
+    position: absolute;
+  }
+  #urlGif{
+    height: 0em;
+    max-width: 8em;
+    min-width: 8em;
+    max-height: 8em;
+    min-height: 8em;
+    padding-top: 2em;
+    margin-left: 4em;
+  }
+  #btDislike{
+    margin-top: 28em;
+    height: 10vw;
+    width: 10vw;
+    margin-left: 3em;
+    position: absolute;
+  }
+  #btLike{
+    margin-left: 20em;
+    margin-top: 6em;
+    height: 3em;
+    width: 3em;
+    position: absolute;
+  }
+  #to-copy{
+    font-size: 10px;
+    width: 30em;
+    border-radius: 5px;
+    border: black;
+    margin: -7em;
+    background-color: grey;
+
+  }
+  #btnCopy{
+    border-radius: 20px;
+    background-color: grey;
+    color: #F123B3;
+    margin-top: 1em;
+    margin-left: 1em;
+  }
+  #rowReg{
+    margin-left: 2em;
+    width: 100%;
+    margin-top: 13em;
+  }
+  #formReg{
+    height: 10em;
+    padding: 5em;
+    margin-left: -2em;
+    padding-top: 1.5em;
+    width: 95%;
+  }
+  #contHistory{
+    margin-bottom: 4em;
+    margin-left: 6em;
+  }
+  #history{
+    margin-left: 6em;
+  }
+  #boxGifHistory{
+    margin-left: 2%;
+    font-size: 13px;
+    width: 95%;
+  }
+  #box-history{
+    float: right;
+    margin: 3em;
+    margin-top: -4.5em;
+    font-size: 15px;
+    color: #F123B3;
+    list-style-type: none;
+    text-align: right;
+  }
+  #email{
+    font-size: 10px;
+  }
+  #password{
+    font-size: 10px;
+  }
+  #inputSearch{
+    margin-left: -3em;
+  }
+  h3{
+    margin-top: 2em;
+  }
+  #contFooter{
+    font-size: 15px;
+    text-align: center;
+    color: #10EE2E;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
 
 
 /*================================================================================
