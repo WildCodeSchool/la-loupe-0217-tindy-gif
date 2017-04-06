@@ -16,7 +16,7 @@ module.exports = (app) => {
 
     router.get('/:id', Auth.hasAuthorization, copy.findById);
 
-    router.post('/', copy.create);
+    router.post('/', Auth.hasAuthorization, copy.create);
 
     router.put('/',Auth.hasAuthorization, copy.copyUpdate);
 

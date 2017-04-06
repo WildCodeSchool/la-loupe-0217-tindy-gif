@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+import moment from 'moment';
 import token from '../token.js';
 import User from './user.js';
 
@@ -20,6 +20,9 @@ const copySchema = new mongoose.Schema({
     url: {
         type: String
     },
+    urlSmall: {
+        type: String
+    },
     date: {
         type: Date,
         default: Date.now
@@ -36,7 +39,6 @@ let model = mongoose.model('Copy', copySchema);
 export default class Copy {
 
     create(req, res) {
-        console.log("create", req.body);
         model.create(req.body,
             (err, copy) => {
                 if (err) {
@@ -50,7 +52,7 @@ export default class Copy {
 
     findAll(req, res) {
         model.find({}, {
-            password: 0
+
         }, (err, copys) => {
             if (err || !copys) {
                 res.sendStatus(403);
@@ -62,20 +64,33 @@ export default class Copy {
     }
 
     findById(req, res) {
-        model.findById(req.params.id, {
-            password: 0,
-            copy: function(copy) {
-
-                copy = copy.sort(compare);
-                return copy.reverse();
-            }
-        }, (err, user) => {
+        model.find({user:req.params.id},(err, copy) => {
             if (err || !copy) {
                 res.sendStatus(403);
             } else {
 
+              var newCopy = [];
+              var copys = copy;
+              for (var i = 0; i < copys.length; i++) {
+                  if (newCopy.map((obj) => obj.gifId).includes(copys[i].gifId)) {
+                      newCopy[newCopy.map((obj) => obj.gifId).indexOf(copys[i].gifId)].count++;
+                      console.log(newCopy[newCopy.map((obj) => obj.gifId).indexOf(copys[i].gifId)].date);
+                      if (moment(copys[i].date).isAfter(newCopy[newCopy.map((obj) => obj.gifId).indexOf(copys[i].gifId)].date)) {
+                          newCopy[newCopy.map((obj) => obj.gifId).indexOf(copys[i].gifId)].date = copys[i].date;
+                      }
+                  } else {
+                      newCopy.push({
+                          gifId: copys[i].gifId,
+                          count: 1,
+                          url:copys[i].url,
+                          urlSmall: copys[i].urlSmall,
+                          date: copys[i].date
+                      });
+                  }
+              }
 
-                res.json(copy);
+
+                res.json(newCopy);
             }
         });
     }

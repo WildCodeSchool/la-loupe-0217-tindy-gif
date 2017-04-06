@@ -10,11 +10,12 @@ angular.module('app')
                 });
             },
 
-            getGif: function(id, url) {
+            getGif: function(id, url, urlSmall) {
                 return $http.get('/gifs/gif', {
                     params: {
                         gif: id,
-                        lien: url
+                        url: url,
+                        urlSmall: urlSmall
                     }
                 });
             },

@@ -23,6 +23,9 @@ const gifSchema = new mongoose.Schema({
     url: {
         type: String
     },
+    urlSmall: {
+        type: String
+    },
     like: [likeSchema],
     dislike: [likeSchema]
 });
@@ -44,6 +47,7 @@ export default class Gif {
                     var calc = {
                         gif: table[i].gif,
                         url: table[i].url,
+                        urlSmall: table[i].urlSmall,
                         vote: table[i].like.length - table[i].dislike.length,
                         like: table[i].like.length,
                         dislike: table[i].dislike.length
@@ -74,10 +78,12 @@ export default class Gif {
 
         model.findOneAndUpdate({
             gif: req.query.gif,
-            url: req.query.lien
+            url: req.query.url,
+            urlSmall: req.query.urlSmall
         }, {
             gif: req.query.gif,
-            url: req.query.lien,
+            url: req.query.url,
+            urlSmall: req.query.urlSmall,
             like: [],
             dislike: []
         }, {
