@@ -50,7 +50,8 @@ export default class Gif {
                         urlSmall: table[i].urlSmall,
                         vote: table[i].like.length - table[i].dislike.length,
                         like: table[i].like.length,
-                        dislike: table[i].dislike.length
+                        dislike: table[i].dislike.length,
+                        class: 0
                     };
                     rank.push(calc);
                     rank.sort(compare);
@@ -75,7 +76,6 @@ export default class Gif {
     }
 
     findById(req, res) {
-
         model.findOneAndUpdate({
             gif: req.query.gif,
             url: req.query.url,
@@ -91,6 +91,18 @@ export default class Gif {
         }, (err, gif) => {
             if (err || !gif) {
                 res.send(gif);
+            } else {
+                res.json(gif);
+            }
+        });
+    }
+    findOne(req, res) {
+
+        model.findOne({
+            gif: req.params.id},
+             (err, gif) => {
+            if (err || !gif) {
+                res.status('nop');
             } else {
                 res.json(gif);
             }

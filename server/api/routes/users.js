@@ -20,8 +20,6 @@ module.exports = (app) => {
 
     router.post('/',Auth.hasAuthorization, user.create);
 
-  
-
     router.put('/:id', Auth.hasAuthorization, user.update);
 
     router.delete('/:id', Auth.isAdministrator, user.delete);

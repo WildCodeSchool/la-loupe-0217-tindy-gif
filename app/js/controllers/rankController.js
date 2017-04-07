@@ -1,47 +1,72 @@
 angular.module('app')
-    .controller('RankController', function($scope, GifService, VoteService, UserService, CopyService, CurrentUser) {
+    .controller('RankController', function($scope, GifService, VoteService, UserService, CopyService, CurrentUser, $state) {
         var table = [];
         var classe = {};
-        $scope.gifs = [];
         var userId = CurrentUser.user()._id;
+        $scope.gifs = [];
         $scope.gifId = "";
-
-
         $scope.supported = false;
-        $scope.success = function() {
-            console.log('Copied!');
-            // CopyService.createCopy($scope.gifId, userId, $scope.smallUrl).then(function(res) {
-            //     console.log(res);
-            // });
+        $scope.urlModal = "";
+        $scope.gifModal = "";
+
+        function verif() {
+            VoteService.getUser($scope.gifModal, userId).then(function(res) {
+                $scope.isVote = function() {
+                    if (res.data) {
+                        return true;
+                    }
+                };
+            });
+        }
+
+
+        $scope.success = function(id) {
+            CopyService.createCopy($scope.gifs[id].gif, userId, $scope.gifs[id].url, $scope.gifs[id].urlSmall).then(function(res) {});
         };
 
-        $scope.fail = function(err) {
-            console.error('Error!', err);
-        };
 
+        // $scope.fail = function(err) {};
 
-        // $scope.copy = function(url) {
-        //     CopyService.createCopy($scope.gifId, userId, $scope.smallUrl).then(function(res) {
-        //         console.log(res);
-        //     });
-        // var toCopy = document.getElementById('to-copy');
-        // var btnCopy = document.getElementById('copy');
-        // toCopy.select();
-        // console.log(url);
-        // document.execCommand('copy', true, url);
-        //     document.execCommand('copy', true, url);
-        //     return false;
-        // };
 
         VoteService.getAll().then(function(res) {
             var table = res.data;
             for (var i = 0; i < table.length; i++) {
-                $scope.gifs = {
-                    class: i + 1
-                };
+                table[i].class = i + 1;
             }
-            console.log(table);
             $scope.gifs = table;
         });
+
+
+        $('#myModal').on('shown.bs.modal', function() {
+            $('#myInput').focus();
+        });
+
+        $scope.modal = function(id) {
+            GifService.getOne($scope.gifs[id].gif).then(function(res) {
+                $scope.urlModal = res.data.data[0].images.downsized.url;
+                $scope.gifModal = res.data.data[0].id;
+                VoteService.getOne($scope.gifModal).then(function(res) {
+                    $scope.like = res.data.like.length;
+                    $scope.dislike = res.data.dislike.length;
+                });
+                verif();
+            });
+        };
+
+
+        $scope.addDislike = function() {
+            VoteService.updateDislike($scope.gifModal, userId).then(function(res) {
+                $('#myModal').modal('hide');
+                window.location.reload(1);
+            });
+        };
+
+
+        $scope.addLike = function() {
+            VoteService.updateLike($scope.gifModal, userId).then(function(res) {
+                $('#myModal').modal('hide');
+                window.location.reload(1);
+            });
+        };
 
     });

@@ -14,6 +14,8 @@ module.exports = (app) => {
 
     router.get('/gif', gif.findById);
 
+    router.get('/one/:id', gif.findOne);
+
     router.post('/', gif.create);
 
     router.put('/like/:id', gif.likeUpdate);

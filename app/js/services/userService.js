@@ -7,9 +7,9 @@ angular.module('app')
             getOne: function(id) {
                 return $http.get('/users/' + id);
             },
-          
-            update: function(id, user) {
-                return $http.put('/users/' + id, user);
+
+            update: function(id, password) {
+                return $http.put('/users/' + id, {password: password});
             },
             delete: function(id) {
                 return $http.delete('/users/' + id);

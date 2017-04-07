@@ -19,8 +19,12 @@
                 </div>
             </div>
         </div>
+
         <div class=" col-xs-12 col-md-6 " align="center">
-            <img src="{{lucky}}" alt="" id="GifMain">
+            <ul swing-stack swing-options="options">
+            <li swing-card swing-on-throwoutleft="dislike()"><img src="{{lucky}}" alt="" id="GifMain"></li>
+          </ul>
+
         </div>
         <div class="col-xs-6 col-md-3">
             <div class="row">
@@ -33,13 +37,13 @@
 
     <div class="row">
         <div class="col-xs-offset-3 col-xs-6" align="center">
-            <p>like/dislike</p>
+            <p><span class="glyphicon glyphicon-thumbs-up" style="color:green"></span>   <strong style="color:green">{{like}}</strong>    /   <strong style="color:red">{{dislike}} </strong>   <span class="glyphicon glyphicon-thumbs-down" style="color:red"></span></p>
         </div>
     </div>
     <div class="row" id="copyMarge">
         <div class="col-xs-offset-3 col-xs-6" align="center">
               <input type="text" ng-model="lucky" style="display:none">
-              <button clipboard supported="supported" text="lucky" on-copied="success()" on-error="fail(err)">Copy link</button>
+              <button  clipboard supported="supported" text="lucky"  on-copied="success()" on-error="fail(err)">Copy link</button>
         </div>
     </div>
     <div class="row">

@@ -18,13 +18,12 @@
                     <li>
 
 
-                        <li><a ng-click="logout()" ng-show="auth.isAuthenticated()" ><span class="glyphicon glyphicon-log-out" style="color:#F123B3"></span>Logout</a></li>
                         <li ui-sref-active="active"><a ui-sref="user.history" ng-show="auth.isAuthenticated()"><span class="glyphicon glyphicon-time" style="color:#F123B3"></span>History</a></li>
                         <li ui-sref-active="active"><a ui-sref="user.rank" ng-show="auth.isAuthenticated()"><span class="glyphicon glyphicon-star-empty" style="color:#F123B3"></span>Rank</a></li>
                         <li ui-sref-active="active"><a ui-sref="anon.login" ng-show="auth.isAuthenticated()"><span class="glyphicon glyphicon-log-out" style="color:#F123B3"></span>Logout</a></li>
-                        
 
-                   
+
+
                     </li>
                 </ul>
             </div>
