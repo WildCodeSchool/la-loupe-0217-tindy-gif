@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('MainController', function($scope, $state, GifService, VoteService, $location, CopyService, CurrentUser) {
+    .controller('MainController', function($scope, $state, GifService, VoteService, CopyService, CurrentUser) {
 
         var n = 0;
         var userId = CurrentUser.user()._id;
@@ -11,10 +11,6 @@ angular.module('app')
         };
         $scope.modalShown = false;
 
-
-        $scope.swipe = function($event) {
-            console.log($event);
-        };
 
         function verif() {
             VoteService.getUser($scope.gifId, userId).then(function(res) {
@@ -33,8 +29,13 @@ angular.module('app')
                 $scope.lucky = res.data.data.image_url;
                 $scope.gifId = res.data.data.id;
                 $scope.smallUrl = res.data.data.fixed_width_small_url;
-                VoteService.getGif($scope.gifId,$scope.lucky, $scope.smallUrl).then(function(res) {
+                VoteService.getGif($scope.gifId, $scope.lucky, $scope.smallUrl).then(function(res) {
                     verif();
+                });
+                VoteService.getOne($scope.gifId).then(function(res) {
+                    $scope.like = res.data.like.length;
+                    $scope.dislike = res.data.dislike.length;
+
                 });
             });
         }
@@ -75,16 +76,8 @@ angular.module('app')
         };
 
 
-        $scope.copy = function() {
-            CopyService.createCopy($scope.gifId, userId,$scope.lucky, $scope.smallUrl).then(function(res) {
-                console.log(res);
-            });
-            var toCopy = document.getElementById('to-copy'),
-                btnCopy = document.getElementById('copy');
-            toCopy.select();
-            document.execCommand('copy');
-            return false;
-
+        $scope.success = function() {
+            CopyService.createCopy($scope.gifId, userId, $scope.lucky, $scope.smallUrl).then(function(res) {});
         };
 
 
@@ -102,4 +95,21 @@ angular.module('app')
 
         randomGif();
 
+        var offset = 500;
+        var element = 1000;
+        $scope.options = {
+            throwOutConfidence: function(offset, element) {
+                console.log('throwOutConfidence', offset, element.offsetWidth);
+                return Math.min(Math.abs(offset) / element.offsetWidth/2, 1);
+            },
+            isThrowOut: function(offset, element, throwOutConfidence) {
+                console.log('isThrowOut', offset, element.offsetWidth/2, throwOutConfidence);
+                return throwOutConfidence === 1;
+            }
+        };
+        $scope.dislike = function() {
+            VoteService.updateDislike($scope.gifId, userId).then(function(res) {
+                randomGif();
+            });
+        };
     });

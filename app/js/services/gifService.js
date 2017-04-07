@@ -8,7 +8,7 @@ angular.module('app')
                 return $http.get('http://api.giphy.com/v1/gifs/search?q=sexy+girl&api_key=dc6zaTOxFJmzC&limit=' + n);
             },
             getOne: function(id) {
-                return $http.get('http://api.giphy.com/v1/gifs/search?q=sexy+girl&api_key=dc6zaTOxFJmzC' + id);
+                return $http.get('http://api.giphy.com/v1/gifs/search?q=' + id +'&api_key=dc6zaTOxFJmzC');
             },
             getSearch : function(search){
                 return $http.get('http://api.giphy.com/v1/gifs/search?q=' + search + '&api_key=dc6zaTOxFJmzC&limit=100');

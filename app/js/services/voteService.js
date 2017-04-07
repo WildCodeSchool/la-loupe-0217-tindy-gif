@@ -19,6 +19,9 @@ angular.module('app')
                     }
                 });
             },
+            getOne: function(id) {
+                return $http.get('/gifs/one/'+id );
+            },
 
             getAll: function() {
                 return $http.get('/gifs/all');

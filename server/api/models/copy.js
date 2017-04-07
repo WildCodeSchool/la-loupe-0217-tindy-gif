@@ -71,10 +71,10 @@ export default class Copy {
 
               var newCopy = [];
               var copys = copy;
+              
               for (var i = 0; i < copys.length; i++) {
                   if (newCopy.map((obj) => obj.gifId).includes(copys[i].gifId)) {
                       newCopy[newCopy.map((obj) => obj.gifId).indexOf(copys[i].gifId)].count++;
-                      console.log(newCopy[newCopy.map((obj) => obj.gifId).indexOf(copys[i].gifId)].date);
                       if (moment(copys[i].date).isAfter(newCopy[newCopy.map((obj) => obj.gifId).indexOf(copys[i].gifId)].date)) {
                           newCopy[newCopy.map((obj) => obj.gifId).indexOf(copys[i].gifId)].date = copys[i].date;
                       }

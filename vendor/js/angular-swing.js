@@ -4,7 +4,7 @@
  * @license https://github.com/gajus/angular-swing/blob/master/LICENSE BSD 3-Clause
  */
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-// shim for using process in browser
+
 
 var process = module.exports = {};
 
@@ -62,7 +62,7 @@ process.binding = function (name) {
     throw new Error('process.binding is not supported');
 }
 
-// TODO(shtylman)
+
 process.cwd = function () { return '/' };
 process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
@@ -205,15 +205,13 @@ Card = function (stack, targetElement) {
             });
         });
 
-        // "mousedown" event fires late on touch enabled devices, thus listening
-        // to the touchstart event for touch enabled devices and mousedown otherwise.
+
         if (_utilJs2['default'].isTouchDevice()) {
             targetElement.addEventListener('touchstart', function () {
                 eventEmitter.trigger('panstart');
             });
 
-            // Disable scrolling while dragging the element on the touch enabled devices.
-            // @see http://stackoverflow.com/a/12090055/368691
+            
             (function () {
                 var dragging = undefined;
 

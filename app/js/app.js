@@ -1,1 +1,1 @@
-angular.module('app', ['ui.router', 'ui.bootstrap', 'angular-clipboard']);
+angular.module('app', ['ui.router', 'ui.bootstrap','angular-clipboard','gajus.swing']);
