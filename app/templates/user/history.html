@@ -1,4 +1,4 @@
-<div class="container">
+<div id="contHistory"  class="container">
 
     <form class="form-horizontal">
 
@@ -40,7 +40,10 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-6 colHistory" ng-repeat="gif in gifs | orderBy:'-count' track by $index">
+
+
+        <div id="boxGifHistory"class="col-xs-12 col-md-6 colHistory" ng-repeat="gif in gifs | orderBy:'-count' track by $index">
+
             <div class="box">
                 <a href="" ng-click="modal($index)" data-toggle="modal" data-target="#myModal"><img id="urlGif" src="{{ gif.urlSmall}}" alt="{{gif.gifId}}" ></a>
             </div>
@@ -58,8 +61,11 @@
                   </div>
                   <div class="col-xs-3">
 
+
                   </div>
               </div>
+
+
 
 
 
