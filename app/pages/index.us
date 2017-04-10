@@ -13,11 +13,16 @@
 </head>
 
 <body>
+    <div id="wrap">
+      <div ui-view='navbar'></div>
+      <div id="main" ui-view='content'></div>
+      <footer class="footer">
+        <div id="contFooter" class="container">
+          <span>GifMeImFamous* WebSite to be created by Wolfy, DjoDjonx and Jordan. </span>
 
-    <div ui-view='navbar'></div>
-    <div ui-view='content'></div>
-
+        </div>
+      </footer>
+    </div>
     <script type="text/javascript" src="<%= js %>"></script>
 </body>
-
 </html>

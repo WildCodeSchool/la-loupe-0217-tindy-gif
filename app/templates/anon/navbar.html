@@ -8,22 +8,24 @@
         <span class="icon-bar"></span>
       </button>
 
-            <a class="navbar-brand" href="/#!/main" id="navbarTitle">GifMeImFamous*</a>
+
+            <a class="navbar-brand" ui-sref="anon.home" id="navbarTitle">GifMeImFamous*</a>
+
 
         </div>
         <div class="nav">
-        <div class="collapse navbar-collapse" id="navbar">
+            <div class="collapse navbar-collapse" id="navbar">
 
-            <ul class="nav navbar-nav navbar-right">
-                <li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
 
-                    <li ui-sref-active="active"><a ui-sref="anon.login" ng-hide="auth.isAuthenticated()" ><span class="glyphicon glyphicon-log-out" style="color:#F123B3"></span>Logout</a></li>
-                    <li ui-sref-active="active"><a ui-sref="anon.history" ng-hide="auth.isAuthenticated()" ><span class="glyphicon glyphicon-time" style="color:#F123B3"></span>History</a></li>
-                    <li ui-sref-active="active"><a ui-sref="user.dashboard" ng-show="auth.isAuthenticated()">Dashboard</a></li>
-                    <li><a ng-click="logout()" ng-show="auth.isAuthenticated()" href='#'>Logout</a></li>
-                </li>
-            </ul>
-        </div>
+                    <li ui-sref-active="active"><a ui-sref="anon.login"  ><span class="glyphicon glyphicon-log-out" style="color:#F123B3"></span>Login</a></li>
+                    <li ui-sref-active="active"><a ui-sref="anon.register"   ><span class="glyphicon glyphicon-time" style="color:#F123B3"></span>Register</a></li>
+
+                    </li>
+                </ul>
+            </div>
+
 
         </div>
     </div>

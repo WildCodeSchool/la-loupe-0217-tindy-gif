@@ -1,0 +1,55 @@
+<div class="container-fluid black">
+    <div class="row">
+
+        <div class="col-xs-offset-8 col-xs-1">
+          <form>
+            <img ng-click='loupe()' id="GifSearch" src="https://media.giphy.com/media/reIVCrGs6pp28/giphy.gif" alt="">
+            <modal-dialog show='modalShown' width='800px' height='60%'>
+                <input id="searchBar" ng-model="search.saisie"></input><button type="submit" ng-click="launchSearch()">Go!</button>
+              </form>
+
+            </modal-dialog>
+        </div>
+    </div>
+    <div class="row" id="partGif">
+        <div class="col-xs-6 col-md-3">
+            <div class="row">
+                <div class="col-xs-1 col-lg-offset-4 col-lg-1 ">
+                    <a ng-show="!isVote()" ng-click="addDislike()"><img id="btDislike" src="img/gdlike.png" /></a>
+                </div>
+            </div>
+        </div>
+
+        <div class=" col-xs-12 col-md-6 " align="center">
+            <ul swing-stack swing-options="options">
+            <li swing-card swing-on-throwoutleft="dislike()"><img src="{{lucky}}" alt="" id="GifMain"></li>
+          </ul>
+
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="row">
+                <div class="col-xs-1 col-lg-offset-1 col-lg-1">
+                    <a ng-show="!isVote()" ng-click="addLike()"><img id="btLike" src="img/glike.png" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6" align="center">
+            <p><span class="glyphicon glyphicon-thumbs-up" style="color:green"></span>   <strong style="color:green">{{like}}</strong>    /   <strong style="color:red">{{dislike}} </strong>   <span class="glyphicon glyphicon-thumbs-down" style="color:red"></span></p>
+        </div>
+    </div>
+    <div class="row" id="copyMarge">
+        <div class="col-xs-offset-3 col-xs-6" align="center">
+              <input type="text" ng-model="lucky" style="display:none">
+              <button  clipboard supported="supported" text="lucky"  on-copied="success()" on-error="fail(err)">Copy link</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6" align="center">
+            <p ng-show="isVote()">You have already vote for this Gif, please go to the next</p>
+            <button id="toNext" class="btn" ng-show="isVote()" ng-click='toNext()'>Go To Next</button>
+        </div>
+    </div>
+</div>

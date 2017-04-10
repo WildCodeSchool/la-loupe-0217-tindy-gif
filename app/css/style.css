@@ -58,16 +58,64 @@ Navbar CSS
 Navbar CSS
 ================================================================================*/
 /*================================================================================
+Register PAGE
+================================================================================*/
+
+#rowReg {
+    margin-top: 20em;
+}
+
+.imput-group {
+    height: 5vw ;
+}
+#formReg{
+  border-radius: 100px 0px 100px 0px;
+  -moz-border-radius: 100px 0px 100px 0px;
+  -webkit-border-radius: 100px 0px 100px 0px;
+  /*border: 2px solid #10EE2E;*/
+  padding: 5vw;
+  background-image: url(/img/pinkfont.png);
+}
+#btnReg{
+  background-color: #10EE2E;
+}
+#email{
+  color: #10EE2E;
+}
+#password{
+  color: #10EE2E;
+}
+/*================================================================================
 body CSS
 ================================================================================*/
 
+html{
+  height:100%;
+}
 
 body {
     background-color: black;
     font-family: 'lemon';
     font-weight: bold;
+    height: 100%;
+    position: relative;
 }
 
+#wrap{
+  min-height:100%;
+  position: relative;
+}
+
+
+#main{
+  position: relative;
+  padding-bottom: 100px;
+}
+
+h3{
+    text-align: center;
+    color: #00EEEE;
+}
 
 #GifSearch {
     width: 40px;
@@ -95,6 +143,9 @@ body {
     background-color: grey;
     color: #F123B3;
 
+}
+#copyMarge{
+  margin-bottom: 5vw;
 }
 
 
@@ -130,79 +181,105 @@ h2{
 body CSS
 ================================================================================*/
 
-        #btLike {
-            margin-left: 4vw;
-            margin-top: 9vw;
-            height: 7vw;
-            border-radius: 10vw;
-        }
+#btLike {
+    margin-left: 4vw;
+    margin-top: 8vw;
+    height: 8.5vw;
+    width: 8.5vw;
+}
 
-        #btDislike {
-            margin-left: -7vw;
-            margin-top: 8vw;
-            height: 8vw;
-            border-radius: 6vw;
-        }
+#btDislike {
+    margin-top: 8vw;
+    height: 8vw;
+    width: 8vw;
+}
 
-        #partGif {
-            margin-top: 8vw;
-        }
+#partGif {
+    margin-top: 8vw;
+}
 
-        #logHistory {
-            font-size: 16px;
-            margin: 10vw;
-            border: 2px solid #10EE2E;
-            margin-top: 6vw;
-            line-height: 1.5vw;
-            width: 34vw;
-            padding: 3vw;
-        }
+#logHistory {
+    font-size: 16px;
+    margin: 10vw;
+    border: 2px solid #10EE2E;
+    margin-top: 6vw;
+    line-height: 1.5vw;
+    width: 34vw;
+    padding: 3vw;
+}
 
-        #btMail {
-            line-height: 1vw;
-        }
+#btMail {
+    line-height: 1vw;
+}
 
-        #btPassword {
-            line-height: 1vw;
-            margin-left: 7vw;
-        }
+#btPassword {
+    line-height: 1vw;
+    margin-left: 7vw;
+}
 
-        #history {
-            color: #F123B3;
-            border-bottom: 1px solid #10EE2E;
-            margin-left: 46%;
-            font-family: 'lemon';
-            font-size: 23px;
-            font-weight: bold;
-            padding-right: 3vw;
-        }
+#history {
+    color: #F123B3;
+    border-bottom: 1px solid #10EE2E;
+    margin-left: 46%;
+    font-family: 'lemon';
+    font-size: 23px;
+    font-weight: bold;
+    padding-right: 3vw;
+}
 
-        #colHistory {
-            height: 8vw;
-            border-right: 1px solid #10EE2E;
-            border-left: 1px solid #10EE2E;
-            margin-top: 3vw;
-        }
+.colHistory {
+    height: 10em;
+    border-radius: 200px 0px 200px 0px;
+    -moz-border-radius: 200px 0px 200px 0px;
+    -webkit-border-radius: 200px 0px 200px 0px;
+    border: 1px solid #10EE2E;
+    margin-top: 5em;
+}
 
-        #urlGif{
-          height: 7vw;
-          margin-left: 8vw;
-        }
-        
-        #box-history{
-          float: right;
-          margin: 2vw;
-          margin-top: -5vw;
-          font-size: 0.9vw;
-          color: #F123B3;
-          list-style-type: none;
-        }
+#urlGif {
+  height: 0em;
+  max-width: 13em;
+  min-width: 13em;
+  max-height: 8em;
+  min-height: 8em;
+  padding-top: 2em;
+  margin-left: 5em;
+}
+
+#box-history {
+  float: right;
+  margin: 5em;
+  margin-top: -4em;
+  font-size: 1.3em;
+  color: #F123B3;
+  list-style-type: none;
+  text-align: right;
+}
+
+
+/*footer*/
+
+.footer {
+    font-size: 1.5em;
+    height: 3em;
+    text-align: center;
+    padding-top: 1em;
+    border-top: 2px solid #F123B3;
+    color: #10EE2E;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-top: 10px;
+}
 
 /*================================================================================
 
 @media screen mobile
 ================================================================================*/
-        /*@media  screen and (min-width: 320px) and (max-width: 991px){
+
+
+@media  screen and (min-width: 320px) and (max-width: 991px){
+
 
   #navbarTitle {
     font-size: 20px;
@@ -219,8 +296,113 @@ body CSS
 
   }
   #GifMain{
-    width: 100vw;
-    /*height: 40vh;*/
+    width: 100%;
+    margin-top: 5%;
+    max-height: 290px;
+    min-height: 290px;
+  }
+  #searchBar{
+    margin-left: 10em;
+  }
+  #GifSearch {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    margin-left: 1em;
+    position: absolute;
+  }
+  #urlGif{
+    height: 0em;
+    max-width: 8em;
+    min-width: 8em;
+    max-height: 8em;
+    min-height: 8em;
+    padding-top: 2em;
+    margin-left: 4em;
+  }
+  #btDislike{
+    margin-top: 28em;
+    height: 10vw;
+    width: 10vw;
+    margin-left: 3em;
+    position: absolute;
+  }
+  #btLike{
+    margin-left: 20em;
+    margin-top: 6em;
+    height: 3em;
+    width: 3em;
+    position: absolute;
+  }
+  #to-copy{
+    font-size: 10px;
+    width: 30em;
+    border-radius: 5px;
+    border: black;
+    margin: -7em;
+    background-color: grey;
+
+  }
+  #btnCopy{
+    border-radius: 20px;
+    background-color: grey;
+    color: #F123B3;
+    margin-top: 1em;
+    margin-left: 1em;
+  }
+  #rowReg{
+    margin-left: 2em;
+    width: 100%;
+    margin-top: 13em;
+  }
+  #formReg{
+    height: 10em;
+    padding: 5em;
+    margin-left: -2em;
+    padding-top: 1.5em;
+    width: 95%;
+  }
+  #contHistory{
+    margin-bottom: 4em;
+    margin-left: 6em;
+  }
+  #history{
+    margin-left: 6em;
+  }
+  #boxGifHistory{
+    margin-left: 2%;
+    font-size: 13px;
+    width: 95%;
+  }
+  #box-history{
+    float: right;
+    margin: 3em;
+    margin-top: -4.5em;
+    font-size: 15px;
+    color: #F123B3;
+    list-style-type: none;
+    text-align: right;
+  }
+  #email{
+    font-size: 10px;
+  }
+  #password{
+    font-size: 10px;
+  }
+  #inputSearch{
+    margin-left: -3em;
+  }
+  h3{
+    margin-top: 2em;
+  }
+  #contFooter{
+    font-size: 15px;
+    text-align: center;
+    color: #10EE2E;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
 
 /*================================================================================
 @media screen mobile
@@ -238,3 +420,49 @@ body CSS
   #btLike{
     margin-left: -10vw;
   }*/
+
+
+/*================================================================================*/
+
+  .ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:absolute;
+  z-index:9999;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color:#000000;
+  opacity: 0.8;
+}
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+  z-index:10000;
+  position: absolute;
+  width: 50%; /* Default */
+
+  /* Center the dialog */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+
+  background-color: #000;
+  box-shadow: 4px 4px 80px #000;
+}
+.ng-modal-dialog-content {
+  padding:10px;
+  text-align: left;
+}
+.ng-modal-close {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 120%;
+  display: inline-block;
+  font-weight: bold;
+  font-family: 'arial', 'sans-serif';
+}

@@ -8,6 +8,8 @@ const hashCode = (s) => s.split("").reduce((a, b) => {
     a & a;
 }, 0);
 
+
+
 const userSchema = new mongoose.Schema({
     email: {
         type: String,
@@ -26,6 +28,8 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     }
+
+
 });
 
 userSchema.methods.comparePassword = function(pwd, cb) {
@@ -82,6 +86,7 @@ export default class User {
             if (err || !users) {
                 res.sendStatus(403);
             } else {
+
                 res.json(users);
             }
         });
@@ -89,11 +94,18 @@ export default class User {
 
     findById(req, res) {
         model.findById(req.params.id, {
-            password: 0
+            password: 0,
+            copy: function(copy) {
+
+              copy = copy.sort(compare);
+              return copy.reverse();
+            }
         }, (err, user) => {
             if (err || !user) {
                 res.sendStatus(403);
             } else {
+
+
                 res.json(user);
             }
         });
@@ -125,9 +137,13 @@ export default class User {
     }
 
     update(req, res) {
+      if (req.body.password) {
+          var salt = bcrypt.genSaltSync(10);
+          req.body.password = bcrypt.hashSync(req.body.password, salt);
+      }
         model.update({
-            _id: req.params.id
-        }, req.body, (err, user) => {
+            email: req.params.id
+        }, {password: req.body.password}, (err, user) => {
             if (err || !user) {
                 res.status(500).send(err.message);
             } else {
@@ -142,6 +158,7 @@ export default class User {
             }
         });
     }
+
 
     delete(req, res) {
         model.findByIdAndRemove(req.params.id, (err) => {

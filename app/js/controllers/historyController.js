@@ -1,26 +1,58 @@
 angular.module('app')
-    .controller('HistoryController', function($scope) {
+    .controller('HistoryController', function($scope, UserService, CurrentUser, CopyService,GifService, VoteService) {
+            userId = CurrentUser.user()._id;
+            $scope.email = CurrentUser.user().email;
 
-      $scope.gifs = [{
-        url: 'http://media4.giphy.com/media/l0MYLXhHYuKUD2bZK/giphy.gif',
-        download: '235',
-        idGif: '59321562',
-        date:'02/03/2016'
-      }, {
-        url: 'http://media0.giphy.com/media/wpB5Jw5xjesjm/giphy.gif',
-        download: '587',
-        idGif: '1181899',
-        date:'12/01/2017'
-      }, {
-        url: 'http://media4.giphy.com/media/JvgwSgxDMNlbG/giphy.gif',
-        download: '639',
-        idGif: '1178296',
-        date:'12/02/2017'
-      }, {
-        url: 'http://media3.giphy.com/media/ACM6F5e0XS0oM/giphy.gif',
-        download: '25',
-        idGif: '19882',
-        date:'27/01/2017'
-    }];
+            $scope.password1 = "";
+            $scope.password2 = "";
+            $scope.gifs = "";
+            $scope.urlModal = "";
+            $scope.gifModal = "";
 
-    });
+
+            CopyService.getOne(userId).then(function(res) {
+              console.log(res);
+                $scope.gifs = res.data;
+            });
+
+            $scope.modal = function(id){
+              GifService.getOne($scope.gifs[id].gifId).then(function(res) {
+                $scope.urlModal = res.data.data[0].images.downsized.url;
+                $scope.gifModal = res.data.data[0].id;
+                VoteService.getOne($scope.gifModal).then(function(res) {
+
+                });
+
+              });
+
+            };
+
+            $scope.success = function(id) {
+                CopyService.createCopy($scope.gifs[id].gifId, userId, $scope.gifs[id].url, $scope.gifs[id].urlSmall).then(function(res) {
+
+                });
+            };
+
+            $("#password_confirm").on('keyup',function() {
+                    if ($(this).val() === $('#password').val()) {
+                        $("#message").html('matching').css('color', 'green');
+                    } else {
+                        $("#message").html('not matching').css('color', 'red');
+                    }
+                });
+
+                $scope.submit = function() {
+                    if ($scope.password1 == $scope.password2 && $scope.email !== undefined ) {
+                        UserService.update($scope.email, $scope.password2).then(function(res) {
+                          console.log('ok ');
+                        });
+                    } else {
+                      console.log('nop');
+                    }
+
+                };
+
+
+
+
+            });

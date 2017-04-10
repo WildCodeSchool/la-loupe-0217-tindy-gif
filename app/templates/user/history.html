@@ -1,0 +1,90 @@
+<div id="contHistory"  class="container">
+
+    <form class="form-horizontal">
+
+        <div class="control-group">
+            <label class="control-label" for="email">E-mail</label>
+            <div class="controls">
+                <input type="text" id="email" name="email" placeholder="email" class="input-xlarge" ng-model="email" >
+                <p class="help-block">Please provide your E-mail</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="password">Password</label>
+            <div class="controls">
+                <input type="password" id="password" name="password" placeholder="password" class="input-xlarge" ng-model="password1">
+                <p class="help-block">Password should be at least 4 characters</p>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="password_confirm">Password (Confirm)</label>
+            <div class="controls">
+                <input type="password" id="password_confirm" name="password_confirm" placeholder="confirm password" class="input-xlarge" ng-model="password2">
+                <p class="help-block">Please confirm password</p>
+                <span id="message"></span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <button class="btn btn-success" ng-click="submit()">Submit change</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<span id="history">My History*</span>
+
+<div class="container">
+    <div class="row">
+
+
+        <div id="boxGifHistory"class="col-xs-12 col-md-6 colHistory" ng-repeat="gif in gifs | orderBy:'-count' track by $index">
+
+            <div class="box">
+                <a href="" ng-click="modal($index)" data-toggle="modal" data-target="#myModal"><img id="urlGif" src="{{ gif.urlSmall}}" alt="{{gif.gifId}}" ></a>
+            </div>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color: black; opacity: 0.9 ;">
+
+              <div class="row" id="partGif">
+                  <div class="col-xs-3">
+
+                  </div>
+
+                  <div class=" col-xs-6 " align="center">
+                    <ul >
+                      <li ><img src="{{urlModal}}" alt="" id="GifMain"></li>
+                    </ul>
+                  </div>
+                  <div class="col-xs-3">
+
+
+                  </div>
+              </div>
+
+
+
+
+
+              <div class="row">
+                  <div class="col-xs-offset-3 col-xs-6" align="center">
+
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+            </div>
+            <ul id="box-history">
+                <li style="font-size: 22px">Copy : {{ gif.count }}</li>
+                <li><span class="glyphicon glyphicon-calendar" style="color:#10EE2E"></span><em>{{ gif.date | date:'dd/MM/yyyy'}}</em></li>
+                <li>
+                    <input type="text" ng-model="gif.url" style="display:none">
+                    <button clipboard supported="supported" text="gif.url" on-copied="success($index)" on-error="fail(err)">Copy link</button>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

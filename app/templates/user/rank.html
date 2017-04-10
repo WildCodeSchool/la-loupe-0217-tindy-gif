@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+
+        <div class="col-xs-12 col-md-6 colHistory" ng-repeat="gif in gifs track by $index ">
+
+            <div class="box">
+                <a href="" ng-click="modal($index)" data-toggle="modal" data-target="#myModal"><img src="{{ gif.urlSmall }}" id="urlGif" alt="{{gif.gif}}"></a>
+                <!-- Button trigger modal -->
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="background-color: black; opacity: 0.8;">
+
+                  <div class="row" id="partGif">
+                      <div class="col-xs-3">
+                          <div class="row">
+                              <div class="col-xs-offset-0 col-xs-1 col-lg-offset-4 col-lg-1 ">
+                                  <a ng-show="!isVote()" ng-click="addDislike()"><img id="btDislike" src="img/gdlike.png" /></a>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div class=" col-xs-6 " align="center">
+                        <ul >
+                          <li ><img src="{{urlModal}}" alt="" id="GifMain"></li>
+                        </ul>
+                      </div>
+                      <div class="col-xs-3">
+                          <div class="row">
+                              <div class="col-xs-offset-0 col-xs-1 col-lg-offset-1 col-lg-1">
+                                  <a ng-show="!isVote()" ng-click="addLike()"><img id="btLike" src="img/glike.png" /></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-xs-offset-3 col-xs-6" align="center">
+                          <p><span class="glyphicon glyphicon-thumbs-up" style="color:green"></span>   <strong style="color:green">{{like}}</strong>  /   <strong style="color:red">{{dislike}} </strong>  <span class="glyphicon glyphicon-thumbs-down" style="color:red"></span></p>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                      <div class="col-xs-offset-3 col-xs-6" align="center">
+                          <p  ng-show="isVote()"style="color:#F123B3">You have already vote for this Gif</p>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <ul id="box-history">
+
+                <li>rank <span class="glyphicon glyphicon-star-empty" style="color:yellow"></span> {{ gif.class }}</li>
+                <li><span class="glyphicon glyphicon-thumbs-up" style="color:green"></span> {{ gif.like }}/{{ gif.dislike }} <span class="glyphicon glyphicon-thumbs-down" style="color:red"></span></li>
+                <li>
+                    <input type="text" ng-model="gif.url" style="display:none">
+                    <button clipboard supported="supported" text="gif.url" on-copied="success($index)" on-error="fail(err)">Copy link</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

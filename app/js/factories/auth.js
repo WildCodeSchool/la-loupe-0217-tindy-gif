@@ -32,6 +32,7 @@ angular.module('app')
             },
             logout: function() {
                 LocalService.unset('auth_token');
+                LocalService.unset('user');
             },
             register: function(formData) {
                 LocalService.unset('auth_token');
@@ -54,7 +55,10 @@ angular.module('app')
                     token = LocalService.get('auth_token');
                 }
                 if (token) {
-                    config.headers.authorization = token;
+                    var regex = /api.giphy.com/i;
+                    if (!regex.test(config.url)) {
+                        config.headers.authorization = token;
+                    }
                 }
                 return config;
             },

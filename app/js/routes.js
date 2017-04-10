@@ -13,28 +13,8 @@ angular.module('app')
                     }
                 }
             })
-            .state('anon.home', {
-                url: '/',
-                views: {
-                    'content@': {
-                        templateUrl: 'anon/home.html',
-                        controller: 'MainController'
-                    }
-                }
-            })
-
-            .state('anon.main', {
-                url: '/main',
-                views: {
-                    'content@': {
-                        templateUrl: 'anon/main.html',
-                        controller: 'MainController'
-                    }
-                }
-            })
-
             .state('anon.login', {
-                url: '/login',
+                url: '/',
                 views: {
                     'content@': {
                         templateUrl: 'anon/login.html',
@@ -50,15 +30,6 @@ angular.module('app')
                         controller: 'RegisterController'
                     }
                 }
-            })
-            .state('anon.search', {
-                url: '/search/:query',
-                views: {
-                    'content@': {
-                        templateUrl: 'anon/search.html',
-                        controller: 'SearchController'
-                    }
-                }
             });
         $stateProvider
             .state('user', {
@@ -72,6 +43,25 @@ angular.module('app')
                 },
                 data: {
                     access: AccessLevels.user
+                }
+            })
+            .state('user.home', {
+                url: '/',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/main.html',
+                        controller: 'MainController'
+                    }
+                }
+            })
+
+            .state('user.rank', {
+                url: '/rank',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/rank.html',
+                        controller: 'RankController'
+                    }
                 }
             })
             .state('user.dashboard', {
@@ -92,11 +82,20 @@ angular.module('app')
                     }
                 }
             })
-            .state('anon.history', {
+            .state('user.search', {
+                url: '/search/:query',
+                views: {
+                    'content@': {
+                        templateUrl: 'user/search.html',
+                        controller: 'SearchController'
+                    }
+                }
+            })
+            .state('user.history', {
                 url: '/history',
                 views: {
                     'content@': {
-                        templateUrl: 'anon/history.html',
+                        templateUrl: 'user/history.html',
                         controller: 'HistoryController'
                     }
                 }

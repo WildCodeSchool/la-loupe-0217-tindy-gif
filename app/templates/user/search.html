@@ -1,0 +1,55 @@
+<div class="container-fluid black">
+    <div class="row">
+        <div class="col-xs-offset-8 col-xs-1">
+            <img ng-click='loupe()' id="GifSearch" src="https://media.giphy.com/media/reIVCrGs6pp28/giphy.gif" alt="">
+            <form>
+              <modal-dialog show='modalShown' width='400px' height='60%'>
+                <input id="inputSearch" ng-model="search.saisie"><button type="submit" ng-click="launchSearch()">Go!</button></input>
+              </form>
+            </modal-dialog>
+        </div>
+    </div>
+    <h3>*{{theme}}*</h3>
+    <div class="row" id="partGif">
+        <div class="col-xs-6 col-md-3">
+            <div class="row">
+                <div class="col-xs-1 col-lg-offset-4 col-lg-1 ">
+                    <a ng-show="!isVote()" ng-click="addDislike()"><img id="btDislike" src="img/gdlike.png" /></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6" align="center">
+
+            <img ng-if="getSearch != undefined" src="{{getSearch.images.downsized.url}}" alt="" id="GifMain">
+            <p ng-if="getSearch == undefined">Aucun résultat</p>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="row">
+                <div class="col-xs-1 col-lg-offset-1 col-lg-1">
+                    <a ng-show="!isVote()" ng-click="addLike()"><img id="btLike" src="img/glike.png" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6" align="center">
+            <p>like/dislike</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6" align="center">
+          <input type="text" ng-model="getSearch.images.downsized.url" style="display:none">
+          <button clipboard supported="supported" text="getSearch.images.downsized.url" on-copied="success()" on-error="fail(err)">Copy</button>
+      <!--
+            <input type="text" id='to-copy' value="{{getSearch.images.downsized.url}}" style="display:none">
+            <button id="btnCopy" class="btn" ng-click='copy()'>Copy</button> -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6" align="center">
+            <p ng-show="isVote()">You have already vote for this Gif, please go to the next</p>
+            <button id="toNext" class="btn" ng-show="isVote()" ng-click='toNext()'>Go To Next</button>
+        </div>
+    </div>
+</div>

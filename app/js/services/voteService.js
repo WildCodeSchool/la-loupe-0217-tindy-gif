@@ -1,22 +1,48 @@
 angular.module('app')
-    .service('VoteService', function($http) {
+    .service('VoteService', function($http, $sce) {
         return {
-            getInformation: function(id) {
-                return $http.get('/gif/' + id);
+            getUser: function(id, userId) {
+                return $http.get('/gifs/vote', {
+                    params: {
+                        gif: id,
+                        user: userId
+                    }
+                });
+            },
+
+            getGif: function(id, url, urlSmall) {
+                return $http.get('/gifs/gif', {
+                    params: {
+                        gif: id,
+                        url: url,
+                        urlSmall: urlSmall
+                    }
+                });
             },
             getOne: function(id) {
-                return $http.get('/users/' + id);
+                return $http.get('/gifs/one/'+id );
             },
-            updateLike: function(id, like) {
-              console.log(id, "like");
-              console.log(like, "like");
-                return $http.put('/gif/' + id, like);
+
+            getAll: function() {
+                return $http.get('/gifs/all');
             },
-            updateDislike: function(id, dislike) {
-              console.log(id,"dislike");
-              console.log(dislike, "dislike");
-                return $http.put('/gif/' + id, dislike);
+            createGif: function(gif) {
+                return $http.post('/gifs/', gif);
+
             },
+            updateLike: function(id, userId) {
+              console.log(id);
+                return $http.put('/gifs/like/' + id, {
+                    user: userId
+                });
+            },
+
+            updateDislike: function(id, userId) {
+                return $http.put('/gifs/dislike/' + id, {
+                    user: userId
+                });
+            },
+
             delete: function(id) {
                 return $http.delete('/users/' + id);
             }
