@@ -164,7 +164,7 @@ body CSS
 #btDislike {
   /*margin-left: -7vw;*/
       margin-top: 8vw;
-
+      margin-left:  50px;
       border-radius: 25px;
 }
 
@@ -249,7 +249,7 @@ body CSS
 #box-history {
   float: right;
   margin: 5em;
-  margin-top: -4em;
+  margin-top: -5em;
   font-size: 1.3em;
   color: #F123B3;
   list-style-type: none;
@@ -258,16 +258,23 @@ body CSS
 
 
 /*footer*/
+#contFooter{
+  text-align: center;
+  color: #10EE2E;
+  position: absolute;
+  bottom: 0;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  width: 100%;
+  border-top: 2px solid #F123B3;
+}
 
 .footer {
     font-size: 1.5em;
     height: 3em;
     text-align: center;
     padding-top: 1em;
-    border-top: 2px solid #F123B3;
     color: #10EE2E;
-    position: absolute;
-    bottom: 0;
     width: 100%;
     margin-top: 10px;
 }
@@ -324,12 +331,12 @@ body CSS
     margin-top: 28em;
     height: 10vw;
     width: 10vw;
-    margin-left: 3em;
+    margin-left: 4.3em;
     position: absolute;
   }
   #btLike{
     margin-left: 20em;
-    margin-top: 6em;
+    margin-top: 5.5em;
     height: 3em;
     width: 3em;
     position: absolute;
@@ -377,7 +384,7 @@ body CSS
   #box-history{
     float: right;
     margin: 3em;
-    margin-top: -4.5em;
+    margin-top: -6em;
     font-size: 15px;
     color: #F123B3;
     list-style-type: none;
@@ -395,34 +402,22 @@ body CSS
   h3{
     margin-top: 2em;
   }
+
   #contFooter{
     font-size: 15px;
     text-align: center;
     color: #10EE2E;
     position: absolute;
+    margin-top: 250px;
     bottom: 0;
     width: 100%;
+    border-top: 2px solid #F123B3;
   }
 
 /*================================================================================
 @media screen mobile
 ================================================================================*/
 
-
-/*@media screen and (min-width: 992px) and (max-width: 1500px) {*/
-    /*  #btDislike{
-=======
-        @media screen and (min-width: 992px) and (max-width: 1500px) {
-            /*  #btDislike{
-
-    margin-left: 5vw;
-  }
-  #btLike{
-    margin-left: -10vw;
-  }*/
-
-
-/*================================================================================*/
 
   .ng-modal-overlay {
   /* A dark translucent div that covers the whole screen */

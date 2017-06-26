@@ -1,32 +1,23 @@
 <nav class="navbar navbar-inverse" role="navigation" ng-controller="NavbarController">
-    <div class="container-fluid" id="navBackground">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+  <div class="container-fluid" id="navBackground">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-
-
-            <a class="navbar-brand" ui-sref="anon.home" id="navbarTitle">GifMeImFamous*</a>
-
-
-        </div>
-        <div class="nav">
-            <div class="collapse navbar-collapse" id="navbar">
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-
-                    <li ui-sref-active="active"><a ui-sref="anon.login"  ><span class="glyphicon glyphicon-log-out" style="color:#F123B3"></span>Login</a></li>
-                    <li ui-sref-active="active"><a ui-sref="anon.register"   ><span class="glyphicon glyphicon-time" style="color:#F123B3"></span>Register</a></li>
-
-                    </li>
-                </ul>
-            </div>
-
-
-        </div>
+      <a class="navbar-brand" ui-sref="anon.home" id="navbarTitle">GifMeImFamous*</a>
     </div>
+    <div class="nav">
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <li ui-sref-active="active"><a ui-sref="anon.login"><span class="glyphicon glyphicon-log-out" style="color:#F123B3"></span>Login</a></li>
+            <li ui-sref-active="active"><a ui-sref="anon.register"><span class="glyphicon glyphicon-time" style="color:#F123B3"></span>Register</a></li>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </nav>

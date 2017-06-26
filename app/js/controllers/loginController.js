@@ -3,6 +3,7 @@ angular.module('app')
         $scope.errors = [];
 
         $scope.login = function() {
+          console.log($scope.user);
             if ($scope.loginForm.$valid) {
                 $scope.errors = [];
                 Auth.login($scope.user).then(function(result) {

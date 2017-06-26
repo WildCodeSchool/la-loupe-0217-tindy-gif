@@ -10,7 +10,7 @@
     "production": "lineman clean build && node production.js"
   },
   "dependencies": {
-    "mobile-angular-ui":"",
+    "mobile-angular-ui": "",
     "angular-touch": "1.6.4",
     "angular-clipboard": "^1.5.0",
     "clipboard": "^1.6.1",
